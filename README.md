@@ -19,7 +19,7 @@ This application was created at [Next Level Week #4](https://nextlevelweek.com/)
 
 ## Lessons Backend (NodeJS)
  - Lesson 01 - Rumo ao próximo nível
-   * Soon.
+   * In that lesson was presented the nodejs, expressjs and concept of api rest. We also created a simple project using express, with a route get response JSON with message "Hello World"
 
  - Lesson 02 - Banco de Dados
    * Soon.
