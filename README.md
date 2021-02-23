@@ -19,10 +19,10 @@ This application was created at [Next Level Week #4](https://nextlevelweek.com/)
 
 ## Lessons Backend (NodeJS)
  - Lesson 01 - Rumo ao próximo nível
-   * In that lesson was presented the nodejs, expressjs and concept of api rest. We also created a simple project using express, with a route get response JSON with message "Hello World"
+   * In this lesson was presented the nodejs, expressjs and concept of api rest. We also created a simple project using express, with a route get response JSON with message "Hello World"
 
  - Lesson 02 - Banco de Dados
-   * Soon.
+   * In this lesson we know some databases some TypeORM and Knex.js, setup TypeORM in project. We also create controllers and routes to signup the user.
 
  - Lesson 03 - Testando a nossa aplicação
    * Soon.
