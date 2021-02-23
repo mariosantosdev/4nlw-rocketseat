@@ -6,7 +6,7 @@ This application was created at [Next Level Week #4](https://nextlevelweek.com/)
     * In this lesson was presented how the React works, e.g concept of components, structure and state. We also created configs of styles and fonts.
 
  - Lesson 02 - Desvendando o Next.js
-    * Soon.
+    * In this lesson was presented feature of Next.js like SPA, SSR, SSG. We also created components Profile, Completed Challenges, Countdown
 
  - Lesson 03 - Contexto e componentes
     * Soon.
