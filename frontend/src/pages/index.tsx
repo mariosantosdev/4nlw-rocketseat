@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import CompletedChallenge from '../components/CompletedChallenge'
+import CountDown from '../components/Countdown'
 import ExperienceBar from '../components/ExperienceBar'
 import Profile from '../components/Profile'
 
@@ -18,6 +19,7 @@ export default function Home() {
         <div>
           <Profile />
           <CompletedChallenge />
+          <CountDown />
         </div>
         <div>
 
