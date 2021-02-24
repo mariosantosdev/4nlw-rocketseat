@@ -25,7 +25,7 @@ This application was created at [Next Level Week #4](https://nextlevelweek.com/)
    * In this lesson we know some databases some TypeORM and Knex.js, setup TypeORM in project. We also create controllers and routes to signup the user.
 
  - Lesson 03 - Testando a nossa aplicação
-   * Soon.
+   * In this lesson we know about Automatic Tests using Jest and Supertest. We also refactor our code, and created surveys structure
 
  - Lesson 04 - Envio de e-mail
    * Soon.
