@@ -1,4 +1,5 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { ReactNode, useContext, useEffect, useState } from 'react'
+import { ChallengesContext } from '../contexts/ChallengeContext'
 
 import styles from './styles/Countdown.module.css'
 
@@ -9,6 +10,10 @@ interface CountDownProps {
 let countdownTimeout: NodeJS.Timeout
 
 function CountDown(props: CountDownProps) {
+    const {
+        actions: { startNewChallenge }
+    } = useContext(ChallengesContext)
+
     const [time, setTime] = useState(0.05 * 60)
     const [isActive, setIsActive] = useState(false)
     const [hasFinished, setHasFinished] = useState(false)
@@ -37,6 +42,7 @@ function CountDown(props: CountDownProps) {
         } else if (isActive && time === 0) {
             setHasFinished(true)
             setIsActive(false)
+            startNewChallenge()
         }
     }, [isActive, time])
 
