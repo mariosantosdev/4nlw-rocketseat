@@ -20,10 +20,12 @@ span.current_exp {
     position: absolute;
     top: 12px;
     transform: translateX(-50%);
+    transition: 1s;
 }
 
 .experience_bar>div>div {
     height: 4px;
     border-radius: 4px;
     background-color: var(--green);
+    transition: 1s;
 }
