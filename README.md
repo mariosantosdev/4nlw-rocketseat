@@ -9,7 +9,7 @@ This application was created at [Next Level Week #4](https://nextlevelweek.com/)
     * In this lesson was presented feature of Next.js like SPA, SSR, SSG. We also created components Profile, Completed Challenges, Countdown
 
  - Lesson 03 - Contexto e componentes
-    * Soon.
+    * In this lesson was presented ContextAPI and we finished all layout of application.
 
  - Lesson 04 - Storagem SSR & Lambda
     * Soon.
