@@ -28,7 +28,7 @@ This application was created at [Next Level Week #4](https://nextlevelweek.com/)
    * In this lesson we know about Automatic Tests using Jest and Supertest. We also refactor our code, and created surveys structure
 
  - Lesson 04 - Envio de e-mail
-   * Soon.
+   * In this lesson, we know sending email using nodemailer and creating template usign handlebars. We also create structure of surveys users answers.
 
  - Lesson 05 - Finalizando nossa api com validações
    * Soon.
