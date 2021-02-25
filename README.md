@@ -11,8 +11,8 @@ This application was created at [Next Level Week #4](https://nextlevelweek.com/)
  - Lesson 03 - Contexto e componentes
     * In this lesson was presented ContextAPI and we finished all layout of application.
 
- - Lesson 04 - Storagem SSR & Lambda
-    * Soon.
+ - Lesson 04 - Melhorando a usabilidade da aplicação
+    * In this lesson, we finishing some components, used context api in another case, and know using notifications in browser.
 
  - Lesson 05 - Próximo nível com React
     * Soon.
