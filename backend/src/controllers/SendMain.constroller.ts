@@ -1,8 +1,10 @@
 import { Request, Response } from "express";
+import { resolve } from "path";
 import { getCustomRepository } from "typeorm";
 import { SurveysRepository } from "../repositories/Surveys.repository";
 import { SurverysUserRepository } from "../repositories/SurveysUser.repository";
 import { UserRepository } from "../repositories/User.repository";
+import SendMailService from "../services/SendMail.service";
 
 class SendMailController {
   async execute(req: Request, res: Response) {
@@ -32,6 +34,43 @@ class SendMailController {
         success: false,
       });
 
+    const surveyUserAlreadyExists = await surveysUserRepository.findOne({
+      where: [{ user_id: userAlreadyExists.id }, { value: null }],
+    });
+
+    // path of file template
+    const templateFile = resolve(
+      __dirname,
+      "..",
+      "views",
+      "emails",
+      "npsMail.hbs"
+    );
+
+    const variablesEmail = {
+      name: userAlreadyExists.name,
+      user_id: userAlreadyExists.id,
+      title: surveyAlreadyExists.title,
+      description: surveyAlreadyExists.description,
+      link: process.env.URL_MAIL,
+    };
+
+    if (surveyUserAlreadyExists) {
+      await SendMailService.execute(
+        email,
+        surveyAlreadyExists.title,
+        variablesEmail,
+        templateFile
+      );
+      return res
+        .status(200)
+        .json({
+          data: undefined,
+          message: "Email send success",
+          success: true,
+        });
+    }
+
     // Save info in database
     const surveyUser = surveysUserRepository.create({
       user_id: userAlreadyExists.id,
@@ -40,6 +79,12 @@ class SendMailController {
     await surveysUserRepository.save(surveyUser);
 
     // Sending mail
+    await SendMailService.execute(
+      email,
+      surveyAlreadyExists.title,
+      variablesEmail,
+      templateFile
+    );
     return res.json(surveyUser);
   }
 }
