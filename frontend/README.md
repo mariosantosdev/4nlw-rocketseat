@@ -1,34 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next Level Week 4 - Rocketseat
+This application was created at [Next Level Week #4](https://nextlevelweek.com/) of [Rocketseat](https://rocketseat.com.br)
 
-## Getting Started
+## Lessons Frontend (ReactJS)
+ - Lesson 01 - Rumo ao próximo nível
+    * In this lesson was presented how the React works, e.g concept of components, structure and state. We also created configs of styles and fonts.
 
-First, run the development server:
+ - Lesson 02 - Desvendando o Next.js
+    * In this lesson was presented feature of Next.js like SPA, SSR, SSG. We also created components Profile, Completed Challenges, Countdown
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+ - Lesson 03 - Contexto e componentes
+    * In this lesson was presented ContextAPI and we finished all layout of application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ - Lesson 04 - Melhorando a usabilidade da aplicação
+    * In this lesson, we finishing some components, used context api in another case, and know using notifications in browser.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+ - Lesson 05 - Próximo nível com React
+    * In this lesson, we know storage data using cookies, know the concept of function `getServerSideProps` of NextJS. We also deployed the project on Vercel.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Challenges Frontend
+ - [ ] Make a documentation
+ - [ ] Make a responsive application (PWA)
+ - [ ] Change colors/themes
+ - [ ] Make OAuth/Login Github
+ - [ ] Menu sidebar
+ - [ ] Ranking of members
+ - [ ] Send level up in twitter
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For more details about the challenges [CLICK HERE](https://www.figma.com/file/vRbW1u0CEZuG2zE6bU5qLg/Move.it-2.0/duplicate)
