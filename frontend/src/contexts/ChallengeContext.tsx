@@ -1,104 +1,114 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
+import Cookies from 'js-cookie'
 import challenges from "../../challenges.json";
 
 export const ChallengesContext = createContext({} as ChallengesContextData);
 
 interface ChallengeProps {
-  type: string;
-  description: string;
-  amount: number;
+	type: string;
+	description: string;
+	amount: number;
 }
 
 export interface ChallengesContextData {
-  level: number;
-  xpToNextLevel: number;
-  currentXp: number;
-  challengesCompleted: number;
-  activeChallenge: ChallengeProps | null;
-  actions: {
-    levelUp: () => void;
-    startNewChallenge: () => void;
-    resetChallenge: () => void;
-    completeChallenge: () => void;
-  };
+	level: number;
+	xpToNextLevel: number;
+	currentXp: number;
+	challengesCompleted: number;
+	activeChallenge: ChallengeProps | null;
+	actions: {
+		levelUp: () => void;
+		startNewChallenge: () => void;
+		resetChallenge: () => void;
+		completeChallenge: () => void;
+	};
 }
 
 interface ChallengesProviderProps {
-  children?: ReactNode;
+	children?: ReactNode;
+	level: number
+	currentXp: number
+	challengesCompleted: number
 }
 
-export function ChallengesProvider({ children }: ChallengesProviderProps) {
-  const [level, setLevel] = useState(1);
-  const [currentXp, setCurrentXp] = useState(0);
-  const [challengesCompleted, setChallengesCompleted] = useState(0);
+export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
+	const [level, setLevel] = useState(rest.level ?? 1);
+	const [currentXp, setCurrentXp] = useState(rest.currentXp ?? 0);
+	const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
 
-  const [activeChallenge, setActiveChallenge] = useState<ChallengeProps | null>(
-    null
-  );
+	const [activeChallenge, setActiveChallenge] = useState<ChallengeProps | null>(
+		null
+	);
 
-  const xpToNextLevel = Math.pow((level + 1) * 4, 2);
+	const xpToNextLevel = Math.pow((level + 1) * 4, 2);
 
-  useEffect(() => {
-    Notification.requestPermission();
-  }, []);
+	useEffect(() => {
+		Notification.requestPermission();
+	}, []);
 
-  function startNewChallenge() {
-    const randomChallenge = Math.floor(Math.random() * challenges.length);
-    const challenge = challenges[randomChallenge];
+	useEffect(() => {
+		Cookies.set('level', String(level))
+		Cookies.set('currentXp', String(currentXp))
+		Cookies.set('challengesCompleted', String(challengesCompleted))
+	}, [level, currentXp, challengesCompleted])
 
-    setActiveChallenge(challenge);
+	function startNewChallenge() {
+		const randomChallenge = Math.floor(Math.random() * challenges.length);
+		const challenge = challenges[randomChallenge];
 
-    new Audio("/notification.mp3").play();
+		setActiveChallenge(challenge);
 
-    if (Notification.permission === "granted") {
-      new Notification("Novo desafio 🚀", {
-        body: `Valendo ${challenge.amount}xp!`,
-        icon: "/favicon.png",
-      });
-    }
-  }
+		new Audio("/notification.mp3").play();
 
-  function resetChallenge() {
-    setActiveChallenge(null);
-  }
+		if (Notification.permission === "granted") {
+			new Notification("Novo desafio 🚀", {
+				body: `Valendo ${challenge.amount}xp!`,
+				icon: "/favicon.png",
+			});
+		}
+	}
 
-  function completeChallenge() {
-    if (!activeChallenge) return;
+	function resetChallenge() {
+		setActiveChallenge(null);
+	}
 
-    const { amount } = activeChallenge;
-    let finalXp = currentXp + amount;
+	function completeChallenge() {
+		if (!activeChallenge) return;
 
-    if (finalXp >= xpToNextLevel) {
-      finalXp = finalXp - xpToNextLevel;
-      levelUp();
-    }
+		const { amount } = activeChallenge;
+		let finalXp = currentXp + amount;
 
-    setCurrentXp(finalXp);
-    setActiveChallenge(null);
-    setChallengesCompleted(challengesCompleted + 1);
-  }
+		if (finalXp >= xpToNextLevel) {
+			finalXp = finalXp - xpToNextLevel;
+			levelUp();
+		}
 
-  function levelUp() {
-    setLevel(level + 1);
-  }
+		setCurrentXp(finalXp);
+		setActiveChallenge(null);
+		setChallengesCompleted(challengesCompleted + 1);
+	}
 
-  return (
-    <ChallengesContext.Provider
-      value={{
-        level,
-        xpToNextLevel,
-        currentXp,
-        challengesCompleted,
-        activeChallenge,
-        actions: {
-          levelUp,
-          startNewChallenge,
-          resetChallenge,
-          completeChallenge,
-        },
-      }}
-    >
-      {children}
-    </ChallengesContext.Provider>
-  );
+	function levelUp() {
+		setLevel(level + 1);
+	}
+
+	return (
+		<ChallengesContext.Provider
+			value={{
+				level,
+				xpToNextLevel,
+				currentXp,
+				challengesCompleted,
+				activeChallenge,
+				actions: {
+					levelUp,
+					startNewChallenge,
+					resetChallenge,
+					completeChallenge,
+				},
+			}}
+		>
+			{children}
+		</ChallengesContext.Provider>
+	);
 }
