@@ -13,7 +13,7 @@ function ExperienceBar(props: ExperienceBarProps) {
         xpToNextLevel
     } = useContext(ChallengesContext)
 
-    const percentToNextLevel = Math.round(currentXp * 100) / xpToNextLevel
+    const percentToNextLevel = Math.round(currentXp * 100) / xpToNextLevel || 0
 
     return (
         <header className={styles.experience_bar}>

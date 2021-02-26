@@ -15,7 +15,7 @@ This application was created at [Next Level Week #4](https://nextlevelweek.com/)
     * In this lesson, we finishing some components, used context api in another case, and know using notifications in browser.
 
  - Lesson 05 - Próximo nível com React
-    * Soon.
+    * In this lesson, we know storage data using cookies, know the concept of function `getServerSideProps` of NextJS. We also deployed the project on Vercel.
 
 ## Lessons Backend (NodeJS)
  - Lesson 01 - Rumo ao próximo nível
